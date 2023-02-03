@@ -1,8 +1,7 @@
-import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:wechat_demo/pages/contact_page.dart';
-import 'package:wechat_demo/pages/discover_page.dart';
+import 'package:wechat_demo/pages/discover_pages/discover_page.dart';
 import 'package:wechat_demo/pages/mine_page.dart';
 import 'package:wechat_demo/pages/wechat_page.dart';
 
