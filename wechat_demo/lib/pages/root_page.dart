@@ -1,6 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:wechat_demo/pages/contact_page.dart';
+import 'package:wechat_demo/pages/friends_pages/contact_page.dart';
 import 'package:wechat_demo/pages/discover_pages/discover_page.dart';
 import 'package:wechat_demo/pages/mine_page.dart';
 import 'package:wechat_demo/pages/wechat_page.dart';
@@ -13,7 +13,7 @@ class RootPage extends StatefulWidget {
 }
 
 class _RootPageState extends State<RootPage> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 1;
   final List<Widget> _page = const [
     WeChatPage(),
     ContactPage(),
