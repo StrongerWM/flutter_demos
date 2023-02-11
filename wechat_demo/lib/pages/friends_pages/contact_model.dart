@@ -3,16 +3,51 @@ class ContactModel {
   final String? name; //item名称 or 联系人昵称
   final String? imageAssets; //本地图片
   final String? indexLetter; //索引字母
+  final String? groupTitle; //分组标题
 
   ContactModel({
     this.imageUrl,
     this.name,
     this.imageAssets,
     this.indexLetter,
+    this.groupTitle,
   });
 }
 
-List data = <ContactModel>[
+//索引数据
+const List indexWordsData = [
+  '🔍',
+  '☆',
+  'A',
+  'B',
+  'C',
+  'D',
+  'E',
+  'F',
+  'G',
+  'H',
+  'I',
+  'J',
+  'K',
+  'L',
+  'M',
+  'N',
+  'O',
+  'P',
+  'Q',
+  'R',
+  'S',
+  'T',
+  'U',
+  'V',
+  'W',
+  'X',
+  'Y',
+  'Z'
+];
+
+//朋友信息模拟
+List<ContactModel> simulateNetData = [
   ContactModel(
       imageUrl: 'https://randomuser.me/api/portraits/women/27.jpg',
       name: 'Lina',
