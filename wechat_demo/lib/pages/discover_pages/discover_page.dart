@@ -22,6 +22,7 @@ class _DiscoverPageState extends State<DiscoverPage> {
 
     return Scaffold(
         appBar: AppBar(
+          elevation: 0.0,
           title: const Text(
             "发现",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),

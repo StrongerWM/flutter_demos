@@ -14,38 +14,6 @@ class ContactModel {
   });
 }
 
-//索引数据
-const List indexWordsData = [
-  '🔍',
-  '☆',
-  'A',
-  'B',
-  'C',
-  'D',
-  'E',
-  'F',
-  'G',
-  'H',
-  'I',
-  'J',
-  'K',
-  'L',
-  'M',
-  'N',
-  'O',
-  'P',
-  'Q',
-  'R',
-  'S',
-  'T',
-  'U',
-  'V',
-  'W',
-  'X',
-  'Y',
-  'Z'
-];
-
 //朋友信息模拟
 List<ContactModel> simulateNetData = [
   ContactModel(
@@ -96,6 +64,30 @@ List<ContactModel> simulateNetData = [
       imageUrl: 'https://randomuser.me/api/portraits/men/15.jpg',
       name: 'Betty',
       indexLetter: 'B'),
+  ContactModel(
+      imageUrl: 'https://randomuser.me/api/portraits/men/13.jpg',
+      name: 'Tony',
+      indexLetter: 'T'),
+  ContactModel(
+      imageUrl: 'https://randomuser.me/api/portraits/men/13.jpg',
+      name: 'Tony',
+      indexLetter: 'T'),
+  ContactModel(
+      imageUrl: 'https://randomuser.me/api/portraits/men/13.jpg',
+      name: 't',
+      indexLetter: 'T'),
+  ContactModel(
+      imageUrl: 'https://randomuser.me/api/portraits/men/13.jpg',
+      name: 'tt',
+      indexLetter: 'T'),
+  ContactModel(
+      imageUrl: 'https://randomuser.me/api/portraits/men/13.jpg',
+      name: 'ttt',
+      indexLetter: 'T'),
+  ContactModel(
+      imageUrl: 'https://randomuser.me/api/portraits/men/13.jpg',
+      name: 'tttt',
+      indexLetter: 'T'),
   ContactModel(
       imageUrl: 'https://randomuser.me/api/portraits/men/13.jpg',
       name: 'Tony',

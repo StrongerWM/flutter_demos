@@ -59,6 +59,7 @@ class _DiscoverPageCellState extends State<DiscoverPageCell> {
         });
       },
       child: Container(
+        height: 54,
         color: _currentColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
