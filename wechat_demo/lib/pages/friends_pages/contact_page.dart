@@ -12,7 +12,13 @@ class ContactPage extends StatefulWidget {
   State<ContactPage> createState() => _ContactPageState();
 }
 
-class _ContactPageState extends State<ContactPage> {
+class _ContactPageState extends State<ContactPage> with
+    AutomaticKeepAliveClientMixin {
+
+  @override
+  // TODO: implement wantKeepAlive
+  bool get wantKeepAlive => true;
+
   //准备头部数据
   final List _topItemData = <ContactModel>[
     ContactModel(name: '新的朋友', imageAssets: 'images/icon_new_friends.png'),
@@ -124,6 +130,7 @@ class _ContactPageState extends State<ContactPage> {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,

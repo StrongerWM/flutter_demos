@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wechat_demo/pages/pvc_root_page.dart';
 import 'package:wechat_demo/pages/root_page.dart';
 
 void main() {
@@ -17,7 +18,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RootPage(),
+      // home: const RootPage(),
+      home: const PVCRootPage(),
     );
   }
 }
