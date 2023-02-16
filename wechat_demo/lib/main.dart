@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wechat_demo/pages/pvc_root_page.dart';
 import 'package:wechat_demo/pages/root_page.dart';
 
 void main() {
@@ -13,10 +14,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const RootPage(),
+      // home: const RootPage(),
+      home: const PVCRootPage(),
     );
   }
 }
