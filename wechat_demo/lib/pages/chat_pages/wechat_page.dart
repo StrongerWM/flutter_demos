@@ -5,6 +5,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:wechat_demo/pages/chat_pages/chat_model.dart';
+import 'package:wechat_demo/pages/chat_pages/search_cell.dart';
+import 'package:wechat_demo/pages/chat_pages/search_page.dart';
 import 'package:wechat_demo/pages/const.dart';
 import 'package:http/http.dart' as http;
 //因为待会要用到的get或者post方法，同名方法很多，此处 as http 为了避免与其他方法冲突
@@ -32,9 +34,9 @@ class _WeChatPageState extends State<WeChatPage> with
     // requestData();
     requestData()
         .then((value) {
-          print('数据解析成功');
+          // print('数据解析成功');
           setState(() {
-            print('渲染');
+            // print('渲染');
             _chatList = value;
             // print(_chatList);
           });
@@ -44,7 +46,7 @@ class _WeChatPageState extends State<WeChatPage> with
           print('请求失败，错误：$error');
         })
         .whenComplete(() => debugPrint('完毕'))
-        .timeout(const Duration(milliseconds: 10))
+        .timeout(const Duration(seconds: 6))  //超过6秒记为请求超时
         .catchError((onError) {
           print('超时 = $onError');
         });
@@ -120,9 +122,11 @@ class _WeChatPageState extends State<WeChatPage> with
   @override
   Widget build(BuildContext context) {
     super.build(context);
+
     return Container(
       child: Scaffold(
         appBar: AppBar(
+          elevation: 0.0,
           centerTitle: true,
           backgroundColor: cColorTheme,
           title: const Text('微信', style: TextStyle(color: Colors.black)),
@@ -151,34 +155,51 @@ class _WeChatPageState extends State<WeChatPage> with
                 ? const Center(
                     child: Text('loading..'),
                   )
-                : ListView.builder(
-                    itemCount: _chatList.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return ListTile(
-                        title: Text(
-                          _chatList[index].name,
-                        ),
-                        subtitle: Container(
-                          padding: const EdgeInsets.only(top: 5, right: 5),
-                          height: 25,
-                          child: Text(
-                            _chatList[index].message,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                        ),
-                        leading: Container(
-                          height: 44,
-                          width: 44,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(6.0),
-                            image: DecorationImage(
-                                image:
-                                    NetworkImage(_chatList[index].avatarUrl)),
-                          ),
-                        ),
-                      );
+                : Container(
+              child: Column(
+                children: [
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).push(MaterialPageRoute(builder:
+                          (BuildContext context){
+                        return SearchPage(sourceData: _chatList);
+                          }));
                     },
-                  )
+                    child: const SearchCell(),
+                  ),
+                  Expanded(
+                      child:ListView.builder(
+                        itemCount: _chatList.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return ListTile(
+                            title: Text(
+                              _chatList[index].name,
+                            ),
+                            subtitle: Container(
+                              padding: const EdgeInsets.only(top: 5, right: 5),
+                              height: 25,
+                              child: Text(
+                                _chatList[index].message,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                            ),
+                            leading: Container(
+                              height: 44,
+                              width: 44,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(6.0),
+                                image: DecorationImage(
+                                    image:
+                                    NetworkImage(_chatList[index].avatarUrl)),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                  ),
+                ],
+              ),
+            ),
             //typedef IndexedWidgetBuilder = Widget Function(BuildContext context, int index);
             ),
       ),
